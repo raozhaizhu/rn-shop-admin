@@ -145,8 +145,8 @@ export default function Home() {
                 <section className="mb-24">
                     <Card className="bg-[#1BC464] text-white">
                         <CardContent className="p-8 text-center">
-                            <h3 className="text-3xl font-bold mb-4">Download GadgetApp Today</h3>
-                            <p className="text-xl mb-6">Experience the future of gadget shopping at your fingertips.</p>
+                            <h3 className="text-3xl font-bold mb-4">Download App Now</h3>
+                            <p className="text-xl mb-6">Experience the shopping at your fingertips.</p>
                             <div className="flex flex-wrap justify-center gap-4 md:gap-0 md:flex-nowrap md:space-x-4">
                                 <Button size="lg" className="bg-white text-black font-bold hover:bg-indigo-100">
                                     <Image
