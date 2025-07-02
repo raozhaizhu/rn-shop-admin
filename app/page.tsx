@@ -30,7 +30,7 @@ const features = [
     {
         icon: Zap,
         title: "Lightning-Fast Search",
-        description: "Find the perfect gadget in seconds with our powerful search engine.",
+        description: "Find the perfect product in seconds with our powerful search engine.",
     },
     {
         icon: ShoppingCart,
@@ -47,12 +47,12 @@ const features = [
 const testimonials = [
     {
         name: "John Doe",
-        comment: "GadgetApp has revolutionized how I shop for tech. It's so convenient!",
+        comment: "This app has revolutionized how I shop for tech. It's so convenient!",
         avatar: "/man1.png",
     },
     {
         name: "Ethan Carter",
-        comment: "The exclusive deals on this app are unbeatable. I've saved so much!",
+        comment: "The exclusive deals on this app are unbelievable. I've saved so much!",
         avatar: "/man2.png",
     },
 ];
@@ -77,7 +77,7 @@ export default function Home() {
     return (
         <div className="min-h-screen">
             <header className="container mx-auto px-4 py-6 flex justify-between items-center">
-                <h1 className="text-2xl font-bold">GadgetApp</h1>
+                <h1 className="text-2xl font-bold">RzzApp</h1>
             </header>
 
             <main className="container mx-auto px-4 py-12">
@@ -85,12 +85,10 @@ export default function Home() {
                     <div className="flex flex-col justify-between md:flex-row items-center">
                         <div className="md:w-1/2 mb-8 md:mb-0">
                             <MotionWrapper>
-                                <h2 className="text-4xl md:text-6xl font-bold mb-4">Discover Gadgets on the Go</h2>
+                                <h2 className="text-4xl md:text-6xl font-bold mb-4">Explore Now</h2>
                             </MotionWrapper>
                             <MotionWrapper delay={0.2}>
-                                <p className="text-xl  mb-6">
-                                    Shop the latest tech right from your pocket with our innovative mobile app.
-                                </p>
+                                <p className="text-xl  mb-6">Shop the latest tech with our mobile app.</p>
                             </MotionWrapper>
                             <MotionWrapper delay={0.4}>
                                 <Button size="lg" className="bg-[#1BC464] hover:bg-[#1bc464d7]">
@@ -116,7 +114,7 @@ export default function Home() {
                                     width={1331}
                                     height={888}
                                     src="/app-pics.png"
-                                    alt="GadgetApp Screenshot"
+                                    alt="App Screenshot"
                                     className="rounded-3xl object-cover shadow-2xl mx-auto h-[500px] w-[250px]"
                                 />
                                 <Badge className="absolute top-4 right-4 bg-[#1bc464] text-white">New Release</Badge>
@@ -206,8 +204,8 @@ export default function Home() {
                 </section>
 
                 <section className="text-center">
-                    <h3 className="text-3xl font-bold mb-4">Ready to Transform Your Gadget Shopping?</h3>
-                    <p className="text-xl  mb-8">Download GadgetApp now and get 20% off your first in-app purchase!</p>
+                    <h3 className="text-3xl font-bold mb-4">Ready to Transform Your Shopping?</h3>
+                    <p className="text-xl  mb-8">Download App now and get 20% off your first in-app purchase!</p>
                     <Button size="lg" className="bg-[#1BC464] hover:bg-[#1bc464d7]">
                         Get Started <ChevronRight className="ml-2 h-4 w-4" />
                     </Button>
