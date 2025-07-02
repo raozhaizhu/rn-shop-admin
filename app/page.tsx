@@ -97,7 +97,7 @@ export default function Home() {
                             </MotionWrapper>
                         </div>
 
-                        <div className="w-1/3">
+                        {/* <div className="w-1/3">
                             <motion.div
                                 className="relative"
                                 style={{ perspective: 1000 }}
@@ -119,7 +119,7 @@ export default function Home() {
                                 />
                                 <Badge className="absolute top-4 right-4 bg-[#1bc464] text-white">New Release</Badge>
                             </motion.div>
-                        </div>
+                        </div> */}
                     </div>
                 </section>
 
