@@ -15,6 +15,7 @@ import {
 } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { ADMIN_DASHBOARD_TEXTS as TEXTS } from "@/constants/constants-ch";
 
 type MonthlyOrderData = {
     name: string;
@@ -45,12 +46,12 @@ const PageComponent = ({
 }) => {
     return (
         <div className="flex-1 p-8 overflow-auto">
-            <h1 className="text-3xl font-bold mb-6">Dashboard Overview</h1>
+            <h1 className="text-3xl font-bold mb-6">{TEXTS.TITLE}</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Orders Chart */}
                 <Card>
                     <CardHeader>
-                        <CardTitle>Orders Over Time</CardTitle>
+                        <CardTitle>{TEXTS.CARD_1_TITLE}</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <ResponsiveContainer width="100%" height={300}>
@@ -68,7 +69,7 @@ const PageComponent = ({
                 {/* Products Chart */}
                 <Card>
                     <CardHeader>
-                        <CardTitle>Products Distribution</CardTitle>
+                        <CardTitle>{TEXTS.CARD_2_TITLE}</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <ResponsiveContainer width="100%" height={300}>
@@ -94,7 +95,7 @@ const PageComponent = ({
                 {/* Category To products Chart */}
                 <Card>
                     <CardHeader>
-                        <CardTitle>Products per Category</CardTitle>
+                        <CardTitle>{TEXTS.CARD_2_TITLE}</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <ResponsiveContainer width="100%" height={300}>
@@ -112,14 +113,14 @@ const PageComponent = ({
                 {/* Latest Users */}
                 <Card>
                     <CardHeader>
-                        <CardTitle>Latest Users</CardTitle>
+                        <CardTitle>{TEXTS.CARD_3_TITLE}</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <Table>
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead>Email</TableHead>
-                                    <TableHead>Date</TableHead>
+                                    <TableHead>{TEXTS.CARD_3_HEAD_1}</TableHead>
+                                    <TableHead>{TEXTS.CARD_3_HEAD_2}</TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody>

@@ -12,6 +12,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { OrdersWithProducts } from "@/app/admin/orders/types";
 import { updateOrderStatus } from "@/actions/orders";
 import { toast } from "sonner";
+import { ADMIN_ORDERS_TEXTS as TEXTS } from "@/constants/constants-ch";
 
 type Props = {
     ordersWithProducts: OrdersWithProducts;
@@ -62,19 +63,19 @@ const PageComponent = ({ ordersWithProducts }: Props) => {
 
     return (
         <div className="container mx-auto p-6">
-            <h1 className="text-2xl font-bold mb-6">Orders Management Dashboard</h1>
+            <h1 className="text-2xl font-bold mb-6">{TEXTS.TITLE}</h1>
             <Table>
                 <TableHeader>
                     <TableRow>
-                        <TableHead>ID</TableHead>
-                        <TableHead>Created At</TableHead>
-                        <TableHead>Status</TableHead>
-                        <TableHead>Description</TableHead>
-                        <TableHead>User</TableHead>
-                        <TableHead>Slug</TableHead>
-                        <TableHead>Total Price</TableHead>
-                        <TableHead>Products</TableHead>
-                        <TableHead>Actions</TableHead>
+                        <TableHead>{TEXTS.TABLE_HEAD_1}</TableHead>
+                        <TableHead>{TEXTS.TABLE_HEAD_2}</TableHead>
+                        <TableHead>{TEXTS.TABLE_HEAD_3}</TableHead>
+                        <TableHead>{TEXTS.TABLE_HEAD_4}</TableHead>
+                        <TableHead>{TEXTS.TABLE_HEAD_5}</TableHead>
+                        <TableHead>{TEXTS.TABLE_HEAD_6}</TableHead>
+                        <TableHead>{TEXTS.TABLE_HEAD_7}</TableHead>
+                        <TableHead>{TEXTS.TABLE_HEAD_8}</TableHead>
+                        <TableHead>{TEXTS.TABLE_HEAD_9}</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -106,7 +107,7 @@ const PageComponent = ({ ordersWithProducts }: Props) => {
                             <TableCell>{order.slug}</TableCell>
                             <TableCell>$ {order.totalPrice.toFixed(2)}</TableCell>
                             <TableCell>
-                                {order.order_items.length} item
+                                {order.order_items.length} {TEXTS.TABLE_CELL}
                                 {order.order_items.length > 1 ? "s" : ""}
                             </TableCell>
                             <TableCell>
@@ -121,12 +122,12 @@ const PageComponent = ({ ordersWithProducts }: Props) => {
                                                 )
                                             }
                                         >
-                                            View Products
+                                            {TEXTS.DIALOG_TRIGGER}
                                         </Button>
                                     </DialogTrigger>
                                     <DialogContent>
                                         <DialogHeader>
-                                            <DialogTitle>Order Products</DialogTitle>
+                                            <DialogTitle>{TEXTS.DIALOG_TITLE}</DialogTitle>
                                         </DialogHeader>
 
                                         <div className="mt-4">
@@ -145,7 +146,8 @@ const PageComponent = ({ ordersWithProducts }: Props) => {
                                                             $ {product.price.toFixed(2)}
                                                         </span>
                                                         <span className="text-sm text-gray-500">
-                                                            Available Quantity: {product.maxQuantity}
+                                                            {TEXTS.DIALOG_SPAN}
+                                                            {product.maxQuantity}
                                                         </span>
                                                     </div>
                                                 </div>

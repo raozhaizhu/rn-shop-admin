@@ -80,7 +80,7 @@ export const ProductTableRow = ({ product, setIsProductModalOpen, setCurrentProd
                 <Button
                     variant="ghost"
                     size="icon"
-                    onClick={() =>
+                    onClick={() => {
                         setCurrentProduct({
                             title: product.title,
                             category: product.category.id.toString(),
@@ -90,10 +90,13 @@ export const ProductTableRow = ({ product, setIsProductModalOpen, setCurrentProd
                             slug: product.slug,
                             intent: "update",
                             heroImage: product.heroImage,
-                        })
-                    }
+                        });
+
+                        setIsDeleteModalOpen(true);
+                        console.log("setIsDeleteModalOpen,now: ");
+                    }}
                 >
-                    <Trash2 className="h-4 w-4" onClick={() => setIsDeleteModalOpen(true)} />
+                    <Trash2 className="h-4 w-4" />
                 </Button>
             </TableCell>
         </TableRow>

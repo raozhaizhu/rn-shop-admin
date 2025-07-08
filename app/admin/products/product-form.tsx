@@ -8,6 +8,7 @@ import { CreateOrUpdateProductSchema } from "@/app/admin/products/schema";
 import { Input } from "@/components/ui/input";
 import { Category } from "@/app/admin/categories/categories.types";
 import { Button } from "@/components/ui/button";
+import { ADMIN_PRODUCTS_FORM_TEXTS as TEXTS } from "@/constants/constants-ch";
 
 type Props = {
     form: UseFormReturn<CreateOrUpdateProductSchema>;
@@ -47,7 +48,7 @@ export const ProductForm = ({
         <Dialog open={isProductModalOpen} onOpenChange={setIsProductModalOpen}>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle>Add New Product</DialogTitle>
+                    <DialogTitle>{TEXTS.DIALOG_TITLE}</DialogTitle>
                 </DialogHeader>
                 <div
                     className="max-h-[calc(100svh-200px)] overflow-y-auto"
@@ -63,7 +64,7 @@ export const ProductForm = ({
                                 name="title"
                                 render={({ field }) => (
                                     <FormItem className="flex flex-col">
-                                        <FormLabel>Title</FormLabel>
+                                        <FormLabel>{TEXTS.DIALOG_FORM_FIELD_1_LABEL}</FormLabel>
                                         <FormControl>
                                             <Input
                                                 placeholder="Enter product title"
@@ -81,7 +82,7 @@ export const ProductForm = ({
                                 name="category"
                                 render={({ field }) => (
                                     <FormItem className="flex flex-col">
-                                        <FormLabel>Category</FormLabel>
+                                        <FormLabel>{TEXTS.DIALOG_FORM_FIELD_2_LABEL}</FormLabel>
                                         <FormControl>
                                             <Select onValueChange={field.onChange}>
                                                 <SelectTrigger disabled={isSubmitting} className="col-span-3">
@@ -105,7 +106,7 @@ export const ProductForm = ({
                                 name="price"
                                 render={({ field }) => (
                                     <FormItem className="flex flex-col">
-                                        <FormLabel>Price</FormLabel>
+                                        <FormLabel>{TEXTS.DIALOG_FORM_FIELD_3_LABEL}</FormLabel>
                                         <FormControl>
                                             <Input
                                                 id="price"
@@ -124,7 +125,7 @@ export const ProductForm = ({
                                 name="maxQuantity"
                                 render={({ field }) => (
                                     <FormItem className="flex flex-col">
-                                        <FormLabel>Max Quantity</FormLabel>
+                                        <FormLabel>{TEXTS.DIALOG_FORM_FIELD_4_LABEL}</FormLabel>
                                         <FormControl>
                                             <Input
                                                 id="maxQuantity"
@@ -143,7 +144,7 @@ export const ProductForm = ({
                                 name="heroImage"
                                 render={({ field }) => (
                                     <FormItem className="flex flex-col">
-                                        <FormLabel>Hero Image</FormLabel>
+                                        <FormLabel>{TEXTS.DIALOG_FORM_FIELD_5_LABEL}</FormLabel>
                                         <FormControl className="col-span-3">
                                             <Input
                                                 type="file"
@@ -164,7 +165,7 @@ export const ProductForm = ({
                                 name="images"
                                 render={({ field }) => (
                                     <FormItem className="flex flex-col">
-                                        <FormLabel>Product Images</FormLabel>
+                                        <FormLabel>{TEXTS.DIALOG_FORM_FIELD_6_LABEL}</FormLabel>
                                         <FormControl className="col-span-3">
                                             <Input
                                                 type="file"
@@ -184,7 +185,7 @@ export const ProductForm = ({
 
                             <DialogFooter>
                                 <Button disabled={isSubmitting} type="submit">
-                                    Add Product
+                                    {TEXTS.DIALOG_BUTTON}
                                 </Button>
                             </DialogFooter>
                         </form>

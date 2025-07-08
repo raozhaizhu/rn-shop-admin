@@ -26,6 +26,8 @@ import { TableCell, TableRow } from "@/components/ui/table";
 import { CreateCategorySchema } from "@/app/admin/categories/create-category.schema";
 import { CategoryWithProducts } from "@/app/admin/categories/categories.types";
 
+import { COMPONENT_CATEGORY_TEXTS as TEXTS } from "@/constants/constants-ch";
+
 export const CategoryTableRow = ({
     category,
     setCurrentCategory,
@@ -79,7 +81,7 @@ export const CategoryTableRow = ({
                                     .join(", ")}
                             </DialogTrigger>
                             <DialogContent>
-                                <DialogTitle className="sr-only">Category product list</DialogTitle>
+                                <DialogTitle className="sr-only">{TEXTS.TABLE_DIALOG_1_TITLE}</DialogTitle>
                                 <h2>Products</h2>
                                 <ScrollArea className="h-[400px] rounded-md p-4">
                                     {category.products.map((product) => (
@@ -95,7 +97,8 @@ export const CategoryTableRow = ({
                                                 <div className="flex flex-col space-y-1">
                                                     <h3 className="font-medium leading-none">{product.title}</h3>
                                                     <p className="text-sm text-muted-foreground">
-                                                        {product.maxQuantity} in stock
+                                                        {product.maxQuantity}
+                                                        {TEXTS.TABLE_DIALOG_1_CARD_P}
                                                     </p>
                                                 </div>
                                             </div>
@@ -113,11 +116,11 @@ export const CategoryTableRow = ({
                         <DropdownMenuTrigger>
                             <Button size="icon" variant="ghost">
                                 <MoreHorizontal className="h-4 w-4" />
-                                <span className="sr-only">Open menu</span>
+                                <span className="sr-only">{TEXTS.TABLE_CELL_DROPDOWN_SPAN}</span>
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end" className="w-[160px]">
-                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                            <DropdownMenuLabel>{TEXTS.TABLE_CELL_DROPDOWN_LABEL}</DropdownMenuLabel>
                             <DropdownMenuItem
                                 onClick={() =>
                                     handleEditClick({
@@ -126,9 +129,11 @@ export const CategoryTableRow = ({
                                     })
                                 }
                             >
-                                Edit
+                                {TEXTS.TABLE_CELL_DROPDOWN_ITEM_1}
                             </DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => setIsDeleteDialogOpen(true)}>Delete</DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => setIsDeleteDialogOpen(true)}>
+                                {TEXTS.TABLE_CELL_DROPDOWN_ITEM_2}
+                            </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </TableCell>
@@ -137,17 +142,15 @@ export const CategoryTableRow = ({
             <Dialog open={isDeleteDialogOpen} onOpenChange={() => setIsDeleteDialogOpen(!isDeleteDialogOpen)}>
                 <DialogContent>
                     <DialogHeader>
-                        <DialogTitle>Are you absolutely sure?</DialogTitle>
-                        <DialogDescription>
-                            This action cannot be undone. This will permanently delete this category.
-                        </DialogDescription>
+                        <DialogTitle>{TEXTS.TABLE_DIALOG_2_TITLE}</DialogTitle>
+                        <DialogDescription>{TEXTS.TABLE_DIALOG_2_DESCRIPTION}</DialogDescription>
                     </DialogHeader>
                     <div className="flex justify-end gap-4">
                         <Button variant="outline" onClick={() => setIsDeleteDialogOpen(false)}>
-                            Cancel
+                            {TEXTS.TABLE_DIALOG_2_BUTTON_1}
                         </Button>
                         <Button variant="destructive" onClick={handleDelete}>
-                            Confirm Delete
+                            {TEXTS.TABLE_DIALOG_2_BUTTON_2}
                         </Button>
                     </div>
                 </DialogContent>

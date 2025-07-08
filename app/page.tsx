@@ -4,11 +4,11 @@ import { ReactNode, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight, Star, Smartphone, Zap, ShoppingCart, Gift } from "lucide-react";
-
+import { ChevronRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { HOME_FEATURES, HOME_TESTIMONIALS, HOME_TEXTS as TEXTS } from "@/constants/constants-ch";
 
 type MotionWrapperProps = {
     children: ReactNode;
@@ -20,42 +20,6 @@ const MotionWrapper = ({ children, delay = 0 }: MotionWrapperProps) => (
         {children}
     </motion.div>
 );
-
-const features = [
-    {
-        icon: Smartphone,
-        title: "User-Friendly Interface",
-        description: "Intuitive design for effortless navigation and shopping.",
-    },
-    {
-        icon: Zap,
-        title: "Lightning-Fast Search",
-        description: "Find the perfect product in seconds with our powerful search engine.",
-    },
-    {
-        icon: ShoppingCart,
-        title: "Secure Checkout",
-        description: "Shop with confidence using our encrypted payment system.",
-    },
-    {
-        icon: Gift,
-        title: "Exclusive Deals",
-        description: "Access app-only discounts and special offers.",
-    },
-];
-
-const testimonials = [
-    {
-        name: "John Doe",
-        comment: "This app has revolutionized how I shop for tech. It's so convenient!",
-        avatar: "/man1.png",
-    },
-    {
-        name: "Ethan Carter",
-        comment: "The exclusive deals on this app are unbelievable. I've saved so much!",
-        avatar: "/man2.png",
-    },
-];
 
 export default function Home() {
     const [isHovered, setIsHovered] = useState(false);
@@ -85,14 +49,15 @@ export default function Home() {
                     <div className="flex flex-col justify-between md:flex-row items-center">
                         <div className="md:w-1/2 mb-8 md:mb-0">
                             <MotionWrapper>
-                                <h2 className="text-4xl md:text-6xl font-bold mb-4">Explore Now</h2>
+                                <h2 className="text-4xl md:text-6xl font-bold mb-4">{TEXTS.SECTION_1_TITLE}</h2>
                             </MotionWrapper>
                             <MotionWrapper delay={0.2}>
-                                <p className="text-xl  mb-6">Shop the latest tech with our mobile app.</p>
+                                <p className="text-xl  mb-6">{TEXTS.SECTION_1_SUBTITLE}</p>
                             </MotionWrapper>
                             <MotionWrapper delay={0.4}>
                                 <Button size="lg" className="bg-[#1BC464] hover:bg-[#1bc464d7]">
-                                    Download Now <ChevronRight className="ml-2 h-4 w-4" />
+                                    {TEXTS.SECTION_1_BUTTON_TEXT_1}
+                                    <ChevronRight className="ml-2 h-4 w-4" />
                                 </Button>
                             </MotionWrapper>
                         </div>
@@ -124,9 +89,9 @@ export default function Home() {
                 </section>
 
                 <section className="mb-24">
-                    <h3 className="text-3xl font-bold mb-8 text-center">App Features</h3>
+                    <h3 className="text-3xl font-bold mb-8 text-center">{TEXTS.SECTION_2_TITLE}</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {features.map((feature, index) => (
+                        {HOME_FEATURES.map((feature, index) => (
                             <MotionWrapper key={index} delay={index * 0.1}>
                                 <Card>
                                     <CardContent className="p-6 flex flex-col items-center text-center">
@@ -143,8 +108,8 @@ export default function Home() {
                 <section className="mb-24">
                     <Card className="bg-[#1BC464] text-white">
                         <CardContent className="p-8 text-center">
-                            <h3 className="text-3xl font-bold mb-4">Download App Now</h3>
-                            <p className="text-xl mb-6">Experience the shopping at your fingertips.</p>
+                            <h3 className="text-3xl font-bold mb-4">{TEXTS.SECTION_3_TITLE}</h3>
+                            <p className="text-xl mb-6">{TEXTS.SECTION_3_SUBTITLE}</p>
                             <div className="flex flex-wrap justify-center gap-4 md:gap-0 md:flex-nowrap md:space-x-4">
                                 <Button size="lg" className="bg-white text-black font-bold hover:bg-indigo-100">
                                     <Image
@@ -154,7 +119,7 @@ export default function Home() {
                                         height={24}
                                         width={24}
                                     />
-                                    App Store
+                                    {TEXTS.SECTION_3_BUTTON_TEXT_1}
                                 </Button>
                                 <Button size="lg" className="bg-white text-black font-bold hover:bg-indigo-100">
                                     <Image
@@ -164,7 +129,7 @@ export default function Home() {
                                         height={24}
                                         width={24}
                                     />
-                                    Google Play
+                                    {TEXTS.SECTION_3_BUTTON_TEXT_2}
                                 </Button>
                             </div>
                         </CardContent>
@@ -172,9 +137,9 @@ export default function Home() {
                 </section>
 
                 <section className="mb-24">
-                    <h3 className="text-3xl font-bold mb-8 text-center">What Our Users Say</h3>
+                    <h3 className="text-3xl font-bold mb-8 text-center">{TEXTS.SECTION_4_TITLE}</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {testimonials.map((testimonial, index) => (
+                        {HOME_TESTIMONIALS.map((testimonial, index) => (
                             <MotionWrapper key={index} delay={index * 0.1}>
                                 <Card>
                                     <CardContent className="p-6">
@@ -204,10 +169,10 @@ export default function Home() {
                 </section>
 
                 <section className="text-center">
-                    <h3 className="text-3xl font-bold mb-4">Ready to Transform Your Shopping?</h3>
-                    <p className="text-xl  mb-8">Download App now and get 20% off your first in-app purchase!</p>
+                    <h3 className="text-3xl font-bold mb-4">{TEXTS.SECTION_5_TITLE}</h3>
+                    <p className="text-xl  mb-8">{TEXTS.SECTION_5_SUBTITLE}</p>
                     <Button size="lg" className="bg-[#1BC464] hover:bg-[#1bc464d7]">
-                        Get Started <ChevronRight className="ml-2 h-4 w-4" />
+                        {TEXTS.SECTION_5_BUTTON_TEXT_1} <ChevronRight className="ml-2 h-4 w-4" />
                     </Button>
                 </section>
             </main>

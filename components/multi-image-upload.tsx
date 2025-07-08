@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 
+import { COMPONENT_MULTI_IMAGE_UPLOADER_TEXTS as TEXTS } from "@/constants/constants-ch";
+
 interface MultiImageUploadProps {
     value: File[];
     onChange: (files: File[]) => void;
@@ -37,7 +39,7 @@ export const MultiImageUpload = ({ value, onChange }: MultiImageUploadProps) => 
                 id="file-input"
             />
             <label htmlFor="file-input" className="cursor-pointer">
-                <Button variant="outline">选择图片</Button>
+                <Button variant="outline">{TEXTS.BUTTON}</Button>
             </label>
             <div className="grid grid-cols-3 gap-2">
                 {previewUrls.map((url, index) => (

@@ -18,6 +18,7 @@ import { imageUploadHandler } from "@/actions/categories";
 import { createProduct, deleteProduct, updateProduct } from "@/actions/products";
 import { ProductForm } from "@/app/admin/products/product-form";
 import { ProductTableRow } from "@/app/admin/products/product-table-row";
+import { ADMIN_PRODUCTS_TEXTS as TEXTS } from "@/constants/constants-ch";
 
 type Props = {
     categories: Category[];
@@ -52,7 +53,7 @@ export const ProductPageComponent: FC<Props> = ({ categories, productsWithCatego
             const fileName = `product/product-${uniqueId}-${file.name}`;
             const formData = new FormData();
             formData.append("file", file, fileName);
-            console.log("看看名字问题", fileName);
+            // console.log("看看名字问题", fileName);
             return imageUploadHandler(formData);
         };
 
@@ -72,13 +73,13 @@ export const ProductPageComponent: FC<Props> = ({ categories, productsWithCatego
 
         if (images.length > 0) {
             const imagesPromises = Array.from(images).map((file) => uploadFile(file as File));
-            console.log("倒数第二图片地址", imagesPromises);
+            // console.log("倒数第二图片地址", imagesPromises);
 
             try {
                 imageUrls = (await Promise.all(imagesPromises)) as string[];
-                console.log("最终图片地址", imageUrls);
+                // console.log("最终图片地址", imageUrls);
             } catch (error) {
-                console.error("Error uploading images:", error);
+                // console.error("Error uploading images:", error);
                 toast.error("Error uploading images");
                 return;
             }
@@ -140,27 +141,28 @@ export const ProductPageComponent: FC<Props> = ({ categories, productsWithCatego
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
             <div className="container mx-auto p-4">
                 <div className="flex justify-between items-center mb-4">
-                    <h1 className="text-2xl font-bold">Products Management</h1>
+                    <h1 className="text-2xl font-bold">{TEXTS.TITLE}</h1>
                     <Button
                         onClick={() => {
                             setCurrentProduct(null);
                             setIsProductModalOpen(true);
                         }}
                     >
-                        <PlusIcon className="mr-2 h-4 w-4" /> Add Product
+                        <PlusIcon className="mr-2 h-4 w-4" />
+                        {TEXTS.BUTTON}
                     </Button>
                 </div>
 
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead>Title</TableHead>
-                            <TableHead>Category</TableHead>
-                            <TableHead>Price</TableHead>
-                            <TableHead>Max Quantity</TableHead>
-                            <TableHead>Hero Image</TableHead>
-                            <TableHead>Product Images</TableHead>
-                            <TableHead>Actions</TableHead>
+                            <TableHead>{TEXTS.TABLE_HEAD_1}</TableHead>
+                            <TableHead>{TEXTS.TABLE_HEAD_2}</TableHead>
+                            <TableHead>{TEXTS.TABLE_HEAD_3}</TableHead>
+                            <TableHead>{TEXTS.TABLE_HEAD_4}</TableHead>
+                            <TableHead>{TEXTS.TABLE_HEAD_5}</TableHead>
+                            <TableHead>{TEXTS.TABLE_HEAD_6}</TableHead>
+                            <TableHead>{TEXTS.TABLE_HEAD_7}</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -190,12 +192,14 @@ export const ProductPageComponent: FC<Props> = ({ categories, productsWithCatego
                 <Dialog open={isDeleteModalOpen} onOpenChange={setIsDeleteModalOpen}>
                     <DialogContent>
                         <DialogHeader>
-                            <DialogTitle>Delete Product</DialogTitle>
+                            <DialogTitle>{TEXTS.DIALOG_TITLE}</DialogTitle>
                         </DialogHeader>
-                        <p>Are you sure you want to delete {currentProduct?.title}</p>
+                        <p>
+                            {TEXTS.DIALOG_P} {currentProduct?.title}
+                        </p>
                         <DialogFooter>
                             <Button variant="destructive" onClick={deleteProductHandler}>
-                                Delete
+                                {TEXTS.DIALOG_BUTTON}
                             </Button>
                         </DialogFooter>
                     </DialogContent>

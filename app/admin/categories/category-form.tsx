@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { CreateCategorySchema } from "@/app/admin/categories/create-category.schema";
+import { ADMIN_CATEGORIES_FORM_TEXTS as TEXTS } from "@/constants/constants-ch";
 
 export const CategoryForm = ({
     form,
@@ -33,11 +34,11 @@ export const CategoryForm = ({
                     name="name"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Name</FormLabel>
+                            <FormLabel>{TEXTS.FORM_FIELD_1_LABEL}</FormLabel>
                             <FormControl>
                                 <Input disabled={isSubmitting} placeholder="Name" {...field} />
                             </FormControl>
-                            <FormDescription>Category Name</FormDescription>
+                            <FormDescription>{TEXTS.FORM_FIELD_1_DESCRIPTION}</FormDescription>
                             <FormMessage />
                         </FormItem>
                     )}
@@ -47,7 +48,7 @@ export const CategoryForm = ({
                     name="image"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Image</FormLabel>
+                            <FormLabel>{TEXTS.FORM_FIELD_2_LABEL}</FormLabel>
                             <FormControl>
                                 <Input
                                     type="file"
@@ -59,13 +60,13 @@ export const CategoryForm = ({
                                     disabled={isSubmitting}
                                 />
                             </FormControl>
-                            <FormDescription>Category Image</FormDescription>
+                            <FormDescription>{TEXTS.FORM_FIELD_2_DESCRIPTION}</FormDescription>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
                 <Button disabled={isSubmitting} type="submit" variant="outline">
-                    Submit
+                    {TEXTS.BUTTON_TEXT}
                 </Button>
             </form>
         </Form>

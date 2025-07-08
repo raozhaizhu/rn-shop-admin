@@ -18,6 +18,7 @@ import { CategoryForm } from "@/app/admin/categories/category-form";
 import { createCategory, imageUploadHandler, updateCategory } from "@/actions/categories";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { ADMIN_CATEGORIES_TEXTS as TEXTS } from "@/constants/constants-ch";
 
 type Props = {
     categories: CategoriesWithProductsResponse;
@@ -110,12 +111,14 @@ const CategoriesPageComponent: FC<Props> = ({ categories }) => {
                                 }}
                             >
                                 <PlusCircle className="h-3.5 w-3.5" />
-                                <span className="sr-only sm:not-sr-only sm:whitespace-break-spaces">Add Category</span>
+                                <span className="sr-only sm:not-sr-only sm:whitespace-break-spaces">
+                                    {TEXTS.DIALOG_BUTTON_TEXT}
+                                </span>
                             </Button>
                         </DialogTrigger>
                         <DialogContent>
                             <DialogHeader>
-                                <DialogTitle>Create Category</DialogTitle>
+                                <DialogTitle>{TEXTS.DIALOG_TITLE}</DialogTitle>
                             </DialogHeader>
                             <CategoryForm
                                 form={form}
@@ -129,7 +132,7 @@ const CategoriesPageComponent: FC<Props> = ({ categories }) => {
 
             <Card className="overflow-x-auto">
                 <CardHeader>
-                    <CardTitle>Categories</CardTitle>
+                    <CardTitle>{TEXTS.CARD_TITLE}</CardTitle>
                 </CardHeader>
 
                 <CardContent>
@@ -137,13 +140,13 @@ const CategoriesPageComponent: FC<Props> = ({ categories }) => {
                         <TableHeader>
                             <TableRow>
                                 <TableHead className="w-[100px] sm:table-cell">
-                                    <span className="sr-only">Image</span>
+                                    <span className="sr-only">{TEXTS.CARD_TABLE_HEAD_1}</span>
                                 </TableHead>
-                                <TableHead className="md:table-cell">Name</TableHead>
-                                <TableHead className="md:table-cell">Created at</TableHead>
-                                <TableHead className="md:table-cell">Products</TableHead>
+                                <TableHead className="md:table-cell">{TEXTS.CARD_TABLE_HEAD_2}</TableHead>
+                                <TableHead className="md:table-cell">{TEXTS.CARD_TABLE_HEAD_3}</TableHead>
+                                <TableHead className="md:table-cell">{TEXTS.CARD_TABLE_HEAD_4}</TableHead>
                                 <TableHead>
-                                    <span className="sr-only">Actions</span>
+                                    <span className="sr-only">{TEXTS.CARD_TABLE_HEAD_5}</span>
                                 </TableHead>
                             </TableRow>
                         </TableHeader>
