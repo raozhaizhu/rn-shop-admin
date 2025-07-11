@@ -79,8 +79,11 @@ export const ProductPageComponent: FC<Props> = ({ categories, productsWithCatego
                 imageUrls = (await Promise.all(imagesPromises)) as string[];
                 // console.log("最终图片地址", imageUrls);
             } catch (error) {
-                // console.error("Error uploading images:", error);
-                toast.error("Error uploading images");
+                let errorMessage = "Error uploading images: ";
+                if (error instanceof Error) {
+                    errorMessage += error.message;
+                }
+                toast.error(errorMessage);
                 return;
             }
         }
